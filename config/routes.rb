@@ -26,5 +26,9 @@ Rails.application.routes.draw do
   # ROOT
   root to: "home#index"
 
+  # Dashboard
   get "/dashboard", to: "dashboard#index"
+
+  # Contacts
+  resources :contacts
 end
