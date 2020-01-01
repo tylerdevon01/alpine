@@ -16,27 +16,4 @@
 <input class="form-control form-control-sm form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
 <br />
 
-<div class="table-responsive">
-    <table class="table table-striped table-sm table-hover table-borderless">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Phone</th>
-                <th>Email</th>
-                <th>Label</th>
-                <th>Other</th>
-            </tr>
-        </thead>
-        <tbody>
-            <% @contacts.each do |contact|%>
-                    <tr>
-                        <td><%=link_to contact.name, contact %></td>
-                        <td><%= contact.phone %></td>
-                        <td><%= contact.email %></td>
-                        <td><%= contact.label %></td>
-                        <td>n/a</td>
-                    </tr>
-            <% end %>
-        </tbody>
-    </table>
-</div>
+<%= render partial: "shared/contacts_table.html.erb", locals: {contacts:@contacts} %>

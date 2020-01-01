@@ -31,4 +31,7 @@ Rails.application.routes.draw do
 
   # Contacts
   resources :contacts
+
+  # Groups
+  resources :groups
 end
