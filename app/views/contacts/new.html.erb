@@ -1,11 +1,22 @@
-<%= form_for @contact do |f|%>
-    <%= f.label        :name %>
-    <%= f.text_field   :name %>
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-5 pb-2 mb-3 border-bottom">
+    <h1 class="h2">New Contact</h1>
+</div>
 
-    <%= f.label        :email %>
-    <%= f.text_field   :email %>
-    
-    <%= f.label        :phone %>
-    <%= f.number_field :phone %>
-    <%= f.submit %>
-<% end %>
+<div class="w-50">
+    <%= form_for @contact do |f|%>
+        <div class="form-group">
+            <%= f.label        :name %>
+            <%= f.text_field   :name, :class=>"form-control", :placeholder => "John Doe"%> 
+        </div>
+        <div class="form-group">
+            <%= f.label        :email %>
+            <%= f.text_field   :email, :class=>"form-control", :placeholder=>"john@example.com" %>
+        </div>       
+        <div class="form-group">
+            <%= f.label        :phone %>
+            <%= f.number_field :phone, :class=>"form-control", :placeholder=>"0000000000" %>
+        </div>
+
+        <%= f.submit "Create Contact", :class=>"btn btn-primary" %>
+    <% end %>
+</div>

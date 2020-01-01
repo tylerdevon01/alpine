@@ -1,8 +1,9 @@
+<%= form_for @contact do |f|%>
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-5 pb-2 mb-3 border-bottom">
     <h1 class="h2"><%= @contact.name %></h1>
     <div class="btn-toolbar mb-2 mb-md-0">
         <div class="btn-group mr-2">
-            <%= link_to "Edit", edit_contact_url(@contact), :class=>"btn btn-sm btn-outline-secondary"%>
+            <%= f.submit "Save", :class=>"btn btn-sm btn-outline-success"%>
             <%= link_to "Delete", contact_url(@contact), method: :delete, :class=>"btn btn-sm btn-outline-secondary"%>
         </div>
         
@@ -19,16 +20,23 @@
         <tbody>
             <tr>
                 <th scope="row">Phone</th>
-                <td><%=@contact.phone%></td>
+                <td>
+                    <%= f.text_field :phone, :class=>"form-control form-control-sm", :placeholder=>"john@example.com" %>
+                </td>
             </tr>
             <tr>
                 <th scope="row">Email</th>
-                <td><%=@contact.email%></td>
+                <td>
+                    <%= f.text_field :email, :class=>"form-control form-control-sm", :placeholder=>"john@example.com" %>
+                </td>
             </tr>
             <tr>
                 <th scope="row">etc</th>
-                <td><%=@contact.phone%></td>
+                <td>
+                    etc
+                </td>
             </tr>
         </tbody>
     </table>
 </div>
+<% end %>

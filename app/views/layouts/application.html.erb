@@ -12,16 +12,23 @@
   </head>
 
   <body>
-    <%= render partial: "shared/navbar.html.erb"%>
-    <div class="container-fluid">
-      <div class="row">
-        <%= render partial: "shared/sidebar.html.erb"%>
-        
-        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-          <%= yield %>
-        </main>
+    <% if user_signed_in? %>
+      <%= render partial: "shared/navbar.html.erb"%>
+      <div class="container-fluid">
+        <div class="row">
+          <%= render partial: "shared/sidebar.html.erb"%>
+          
+          <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+            <%= yield %>
+          </main>
+        </div>
       </div>
-    </div>
+    <% else %>
+      <%= yield %>
+    <% end %>
+
+
+
     <!-- Icons -->
     <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
     <script>
