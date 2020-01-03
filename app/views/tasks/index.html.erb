@@ -1,0 +1,50 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-5 pb-2 mb-3 border-bottom">
+    <div>
+        <%= link_to contact_path(@contact) do %>
+            <div class="mb-3">
+                <span data-feather="chevron-left"></span>
+                <span>Back to Contact</span>
+            </div>
+        <% end %>
+        <h1 class="h2">Tasks</h1>
+    </div>
+
+    <div class="btn-toolbar mb-2 mb-md-0 mt-3">
+        <div class="btn-group mr-2">
+            <%= link_to "New", new_contact_task_path, :class=>"btn btn-sm btn-outline-secondary"%>
+            <button class="btn btn-sm btn-outline-secondary">Option</button>
+        </div>
+        
+        <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
+        <span data-feather="plus"></span>
+        Add New
+        </button>
+    </div>
+</div>
+
+<input class="form-control form-control-sm form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+<br />
+<div class="table-responsive">
+    <table class="table table-striped table-sm table-hover table-borderless">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Body</th>
+                <th>Email</th>
+                <th>Label</th>
+                <th>Other</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @tasks.each do |task|%>
+                    <tr>
+                        <td><%=link_to task.name, [@contact, task] %></td>
+                        <td><%= task.body %></td>
+                        <td>n/a</td>
+                        <td>n/a</<td>
+                        <td>n/a</td>
+                    </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>

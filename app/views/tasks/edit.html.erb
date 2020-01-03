@@ -1,0 +1,26 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-5 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Edit Task for <%= @contact.name%></h1>
+</div>
+
+<div class="w-50">
+    <%= form_for [@contact, @task] do |f|%>
+        <div class="form-group">
+            <%= f.label        :name %>
+            <%= f.text_field   :name, :class=>"form-control", :placeholder => "John Doe"%> 
+        </div>
+        <div class="form-group">
+            <%= f.label        :body %>
+            <%= f.text_area    :body, :class=>"form-control", :placeholder=>"john@example.com" %>
+        </div>
+        <div class="form-group">  
+            <%= f.label        :date %>
+            <%= f.date_select  :date, :order => [:month, :day, :year], :class=>"form-control" %>
+        </div>
+        <div class="form-group">  
+            <%= f.label        :time %>
+            <%= f.time_select  :time, ampm:true, :class=>"form-control"%>
+        </div>
+
+        <%= f.submit "Save Changes", :class=>"btn btn-primary" %>
+    <% end %>
+</div>

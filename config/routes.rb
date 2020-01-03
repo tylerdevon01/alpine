@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   
+  get 'tasks/index'
+  get 'tasks/show'
+  get 'tasks/new'
+  get 'tasks/edit'
   get 'notes/index'
   get 'notes/new'
   get 'notes/show'
@@ -38,8 +42,12 @@ Rails.application.routes.draw do
   # Groups
   resources :groups
 
-  # Notes
   resources :contacts do
+    # Notes
     resources :notes
+    
+    # Tasks
+    resources :tasks
   end
+
 end
