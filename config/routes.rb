@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   
+  get 'notes/index'
+  get 'notes/new'
+  get 'notes/show'
   # DEVISE
   devise_for :users, skip: :all
   devise_scope :user do
@@ -34,4 +37,9 @@ Rails.application.routes.draw do
 
   # Groups
   resources :groups
+
+  # Notes
+  resources :contacts do
+    resources :notes
+  end
 end
